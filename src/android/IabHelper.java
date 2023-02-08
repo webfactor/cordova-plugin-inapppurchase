@@ -952,6 +952,11 @@ public class IabHelper implements PurchasesUpdatedListener {
             }
         }
 
+        if(productList.isEmpty()) {
+          flagEndAsync();
+          throw new RemoteException("Exception message");
+      }
+
         QueryProductDetailsParams productDetailsParams = QueryProductDetailsParams.newBuilder()
             .setProductList(productList)
             .build();
